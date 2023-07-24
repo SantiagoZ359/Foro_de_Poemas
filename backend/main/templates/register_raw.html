@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <style>
+      .main{
+        border:1px solid rgb(165, 100, 46);
+        padding:30px;
+        background-color:rgba(247, 228, 166, 0.651);
+        margin:10px;
+
+      }
+      body{
+        background-color: lightgray;
+      }
+      /* .services{
+        background-color:#94beff;
+        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+        padding:10px;
+        border:1px solid black;
+        width:250px;
+      } */
+      h1{
+        font-weight: bold;
+        font-size:25px;
+        color:#624300;
+      }
+
+      .button {
+        background-color:#3680f2;
+      	border-radius:2px;
+      	border:1px solid black;
+      	display:inline-block;
+      	color:#ffffff;
+      	font-size:13px;
+      	padding:6px 24px;
+      	text-decoration:none;
+        margin-right:3px;
+
+      }
+
+    </style>
+    <body>
+        <br/>
+        <div class="main">
+          <h1>BIENVENIDO {{usuario.nombre}} A NUESTRO FORO DE POEMAS!</h1>
+          <p>Felicitaciones! Fuiste seleccionado para ser {{usuario.rol}} en nuestra exclusiva pagina!</p>
+          <!-- <div class="services">
+            <p>Con nuestro servicio podras:</p>
+              <ul>
+                   <li><a>Cargar tus proyectos</a></li>
+                   <li><a>Eliminar proyectos</a></li>
+                   <li><a>Buscar proyectos</a></li>
+              </ul>
+          </div> -->
+        <br/>
+      </div>
+      </body>
+      </html>

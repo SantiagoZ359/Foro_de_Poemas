@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Poemas</title>
+        <style>
+          body {
+              background-color: #f8f9fa; /* Color de fondo gris claro */
+          }
+        </style>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    </head>
+    <body>
+
+        <main>
+ 
+          <div class="container-fluid mb-5">
+            <header class="d-flex flex-wrap justify-content-center py-2 mb-4 border-bottom bg-primary">
+                <a href="{{url_for('app.index_poeta')}}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <svg class="bi me-2" width="" height="32" ><use xlink:href="#bootstrap"></use></svg>
+                <span class="fs-4" style="color: white;">Foro Poemas</span>
+            </a>
+      
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="{{url_for('app.create')}}" class="nav-link" style="color: white;">Subir Poema</a></li>
+                <li class="nav-item"><a href="{{url_for('app.mis_poemas')}}" class="nav-link" style="color: white;">Tus Poemas</a></li>
+            </ul>
+                
+
+<div class="dropdown">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+      MENU
+    </a>
+  
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <li><a class="dropdown-item" href="perfil">Mi Perfil</a></li>
+      <li><a class="dropdown-item" href="editar_perfil">Editar cuenta</a></li>
+      <div class="alert alert-danger" role="alert">
+        <a href="#" class="alert-link">Cerrar Sesion</a>
+    </ul>
+  </div>
+                </header>
+            </div>
+        </main>
+    <!--Contenido-->
+    <div class="container px-0 py-0">
+        <h2 class="pb-1 border-bottom">ESTOS SON TUS POEMAS:</h2>
+        <!--Filtro-->
+    <!--cabeza lista poemas-->
+    <h2 class="pb-3 border-bottom "></h2>
+    <div class="container px-1 py-1 ">
+        <div class="col d-block position-static pt-0 mx-0 rounded-3 shadow overflow-hidden w-280px ">
+          <div class="row mb-3 justify-content-center fs-4 flex-shrink-0 me-0">
+            
+            <div class="col-4 themed-grid-col">POETA</div>
+            <div class="col-4 themed-grid-col">POEMA</div>
+            <div class="col-4 themed-grid-col">FECHA</div>
+          </div>
+        </div>
+    </div>
+    <!--LISTA-->
+    <h2 class="pb-3 border-bottom "></h2>
+    <div class="container px-1 py-1 ">
+        <div class="dropdown-menu  d-block position-static pt-0 mx-0 rounded-3 shadow overflow-hidden w-280px ">
+          <div class="row mb-3 fs-0 flex-shrink-0 me-0">
+            <div class="col-4 themed-grid-col">POETA</div>
+            <div class="col-4 themed-grid-col">POEMA</div>
+            <div class="col-4 themed-grid-col">FECHA</div>
+          </div>
+          <div class="container justify-content-center">
+            <div class="container px-1 py-1 ">
+                <a href="ver_poema_poeta" class="btn btn-primary">
+                Ver
+                </a>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="container px-1 py-1 ">
+        <div class="dropdown-menu  d-block position-static pt-0 mx-0 rounded-3 shadow overflow-hidden w-280px ">
+          <div class="row mb-3 fs-0 flex-shrink-0 me-0">
+            <div class="col-4 themed-grid-col">POETA</div>
+            <div class="col-4 themed-grid-col">POEMA</div>
+            <div class="col-4 themed-grid-col">FECHA</div>
+          </div>
+          <div class="container justify-content-center">
+            <div class="container px-1 py-1 ">
+                <a href="ver_poema_poeta" class="btn btn-primary">
+                Ver
+                </a>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="container px-1 py-1 ">
+        <div class="dropdown-menu  d-block position-static pt-0 mx-0 rounded-3 shadow overflow-hidden w-280px ">
+          <div class="row mb-3 fs-0 flex-shrink-0 me-0">
+            <div class="col-4 themed-grid-col">POETA</div>
+            <div class="col-4 themed-grid-col">POEMA</div>
+            <div class="col-4 themed-grid-col">FECHA</div>
+          </div>
+          <div class="container justify-content-center">
+            <div class="container px-1 py-1 ">
+                <a href="ver_poema_poeta" class="btn btn-primary">
+                Ver
+                </a>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="container px-1 py-1 ">
+        <div class="dropdown-menu  d-block position-static pt-0 mx-0 rounded-3 shadow overflow-hidden w-280px ">
+          <div class="row mb-3 fs-0 flex-shrink-0 me-0">
+            <div class="col-4 themed-grid-col">POETA</div>
+            <div class="col-4 themed-grid-col">POEMA</div>
+            <div class="col-4 themed-grid-col">FECHA</div>
+          </div>
+          <div class="container justify-content-center">
+            <div class="container px-1 py-1 ">
+                <a href="ver_poema_poeta" class="btn btn-primary">
+                Ver
+                </a>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="container px-1 py-1 ">
+        <div class="dropdown-menu  d-block position-static pt-0 mx-0 rounded-3 shadow overflow-hidden w-280px ">
+          <div class="row mb-3 fs-0 flex-shrink-0 me-0">
+            <div class="col-4 themed-grid-col">POETA</div>
+            <div class="col-4 themed-grid-col">POEMA</div>
+            <div class="col-4 themed-grid-col">FECHA</div>
+          </div>
+          <div class="container justify-content-center">
+            <div class="container px-1 py-1 ">
+                <a href="ver_poema_poeta" class="btn btn-primary">
+                Ver
+                </a>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="container px-1 py-1 ">
+        <div class="dropdown-menu  d-block position-static pt-0 mx-0 rounded-3 shadow overflow-hidden w-280px ">
+          <div class="row mb-3 fs-0 flex-shrink-0 me-0">
+            <div class="col-4 themed-grid-col">POETA</div>
+            <div class="col-4 themed-grid-col">POEMA</div>
+            <div class="col-4 themed-grid-col">FECHA</div>
+          </div>
+          <div class="container justify-content-center">
+            <div class="container px-1 py-1 ">
+                <a href="ver_poema_poeta" class="btn btn-primary">
+                Ver
+                </a>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!--Pagu-->
+    <div class="container px-5 justify-content-center">
+      <div class="bd-example justify-content-center">
+        <nav aria-label="Standard pagination example">
+          <ul class="pagination justify-content-center">
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">«</span>
+              </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">»</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+      <!-- Pie --> 
+      <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+          <span class="text-muted">Foro Poemas © <script>document.write(new Date().getFullYear())</script> </span>
+        </div>
+      </footer>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    
+    
+    
+    </body>
+</html>
+  

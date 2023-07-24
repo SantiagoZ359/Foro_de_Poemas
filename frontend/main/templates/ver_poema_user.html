@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+    
+        {% block content %}
+        <!--Contenido-->
+        <div class="container px-4 py-1">
+            <div class="col d-block position-static pt-2 mx-2 rounded-3 shadow overflow-hidden w-780px d-flex align-items-start">
+                <div class="icon-square bg-light text-light d-inline-flex align-items-center justify-content-center fs-5 flex-shrink-5 me-5">
+                  <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"></use></svg>
+                </div>
+                    <div class="col-md-11">
+                
+                        <article class="blog-post">
+                            <h2 class="blog-post-title mb-1">{{poem.titulo}}</h2>
+                            <p class="blog-post-meta">{{poem.fecha}}, por: <a href="#">{{poem.usuario.nombre}}</a></p>
+                            <p>{{poem.cuerpo}}</p>
+                        </article>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <h2 class="pb-2 border-bottom "></h2>
+        <!-- Comentarios-->
+        <tbody>
+            {% for mark in marks %}
+                <h2 class="pb-8 border-bottom "></h2>
+                 <div class="row g-4 py-5 row-cols-3 row-cols-lg-2">
+                <div class="col d-block position-static pt-0 mx-1 rounded-3 shadow overflow-hidden w-200px d-flex align-items-start">
+                    <div class="icon-square bg-light text-light d-inline-flex align-items-center justify-content-center fs-1 flex-shrink-0 me-1">
+                      <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"></use></svg>
+                    </div>
+                    <div class="col-md-8">
+                
+                        <div class="coment-text">
+                            <p>{{mark.usuario.nombre}}</p>
+                            <p>{{mark.comentario}}</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            {% endfor %}
+        </tbody>    
+
+
+            
+            <!--Ranking-->
+            <div class="container px-4 py-1"></div>
+            <div class="row">
+                <!-- Espacio en blanco -->
+                <div class="col-lg-2 col-md-1">
+    
+                </div>
+                <div class="col-lg-2 col-md-1">
+    
+                </div>
+                <div class="col d-block position-static pt-0 mx-5 justify-content-center">
+                    <div class="col-md-10 justify-content-center">
+                
+                        <div>
+                            <h2 class="comentario mb-1">CALIFICACION</h2>
+                            <h3 class="centered">{{poem.promedio}}</h3>
+                        </div>
+                </div>
+                <!-- Espacio en blanco -->
+                <div class="col-lg-2 col-md-1">
+                    
+                </div>
+            </div>
+        {% endblock %}

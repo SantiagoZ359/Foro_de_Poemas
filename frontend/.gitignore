@@ -1,0 +1,7 @@
+.env
+lib64
+.sh
+share/python-wheels
+lib/python3.9/site-packages
+pyvenv.cfg
+bin

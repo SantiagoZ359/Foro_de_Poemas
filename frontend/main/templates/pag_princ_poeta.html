@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Poemas</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <style>
+          body {
+              background-color: #f8f9fa; /* Color de fondo gris claro */
+          }
+      </style>
+    </head>
+    <body>
+
+      <main>
+ 
+        <div class="container-fluid mb-5">
+            <header class="d-flex flex-wrap justify-content-center py-2 mb-4 border-bottom bg-primary">
+                <a href="{{url_for('app.index_poeta')}}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <svg class="bi me-2" width="" height="32" ><use xlink:href="#bootstrap"></use></svg>
+                <span class="fs-4" style="color: white;">Foro Poemas</span>
+            </a>
+      
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="{{url_for('app.create')}}" class="nav-link" style="color: white;">Subir Poema</a></li>
+            </ul>
+            
+
+<div class="dropdown">
+<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+  MENU
+</a>
+
+<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+  <li><a class="dropdown-item" href="{{url_for('app.details')}}">Mi Perfil</a></li>
+  <li><a class="dropdown-item" href="editar_perfil">Editar cuenta</a></li>
+  <div class="alert alert-danger" role="alert">
+    <a href="{{url_for('app.logout')}}" class="url">Cerrar Sesion</a>
+</ul>
+</div>
+            </header>
+        </div>
+    </main>
+    <!--Contenido-->
+
+    <div class="container px-0 py-0">
+        
+        <h2 class="pb-1 border-bottom" style="margin-bottom: 15px;">ULTIMOS POEMAS AGREGADOS:</h2>
+        <!--Filtro-->
+        
+        <!--Poema-->
+        <div style="display: flex;">
+          <tbody>
+              {% for poem in poems %}
+              <h2 class="pb-2 border-bottom "></h2>
+              <div class="contenedor-poema" style="margin-right: 30px; height: 300px;">
+                  <div class="col d-block position-static pt-0 mx-1 rounded-3 shadow overflow-hidden w-200px d-flex align-items-start justify-content-center" style="background-color: white; display: flex; align-items: flex-start;">
+                      <div class="icon-square bg-light text-dark d-inline-flex align-items-center justify-content-center fs-1 flex-shrink-0 me-1" style="background-color: white;">
+                          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
+                      </div>
+                      <div>
+                          <h2>{{poem.titulo}}</h2>
+                          <p>{{poem.cuerpo[:150] + '...'}}</p>  <!-- Mostrar solo los primeros 100 caracteres del cuerpo -->
+                          <div style="display: flex; justify-content: center;">
+                              <a href="{{url_for('app.view_user', id = poem.id)}}" class="btn btn-primary">
+                                  Seguir leyendo
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              {% endfor %}
+          </tbody>
+      </div>
+      
+        <!-- Agreadecimiento e imagen --> 
+        <div class="agradecimiento-section bg-white p-4 border rounded">
+          <div class="text-center">
+              <img src="{{url_for('static', filename='img/monalisa.jpg')}}" alt="Foto" class="img-fluid rounded-circle mb-3" style="width: 200px; height: 200px;">
+          </div>
+          <p class="text-center fs-5">Gracias por ser parte de nuestro sitio. Esperamos que disfrutes, participes y aprendas en nuestra comunidad.</p>
+      </div>
+
+<img src="{{url_for('static', filename='img/banner1.jpeg')}}" alt="Imagen" class="img-fluid mb-3" style="width: 100%; height: 350px;">
+      <!--pagna-->
+      <!--
+      <div class="container px-5" style="margin-top: 5px;">
+        <div class="bd-example">
+          <nav aria-label="Standard pagination example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">«</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">»</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      --> 
+    </body>
+      <!-- Pie --> 
+      <footer class="footer mt-auto py-3">
+        <div class="container-fluid" width="60px">
+          <span class="text-muted" style="color:white">Foro Poemas © Todos los derechos reservados. <script style="color:white">document.write(new Date().getFullYear())</script> </span>
+        </div>
+      </footer>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+</html>
+  

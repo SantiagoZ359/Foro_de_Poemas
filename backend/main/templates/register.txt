@@ -1,0 +1,3 @@
+Bienvenido {{usuario.nombre}} a nuestro foro de poemas!
+
+Felicitaciones! Fuiste seleccionado para ser {{usuario.rol}} en nuestra exclusiva pagina!

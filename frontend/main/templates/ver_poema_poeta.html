@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Poemas</title>
+        <style>
+            body {
+                background-color: #f8f9fa; /* Color de fondo gris claro */
+            }
+        </style>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    </head>
+    <body>
+
+        <main>
+ 
+            <div class="container-fluid mb-5">
+                <header class="d-flex flex-wrap justify-content-center py-2 mb-4 border-bottom bg-primary">
+                    <a href="{{url_for('app.index_poeta')}}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <svg class="bi me-2" width="" height="32" ><use xlink:href="#bootstrap"></use></svg>
+                    <span class="fs-4" style="color: white;">Foro Poemas</span>
+                </a>
+          
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a href="{{url_for('app.create')}}" class="nav-link" style="color: white;">Subir Poema</a></li>
+                </ul>
+                
+
+<div class="dropdown">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+      MENU
+    </a>
+  
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <li><a class="dropdown-item" href="{{url_for('app.details')}}">Mi Perfil</a></li>
+      <li><a class="dropdown-item" href="editar_perfil">Editar cuenta</a></li>
+      <div class="alert alert-danger" role="alert">
+        <a href="{{url_for('app.logout')}}" class="alert-link">Cerrar Sesion</a>
+    </ul>
+  </div>
+                </header>
+            </div>
+        </main>
+    <!--Contenido-->
+    <div class="container px-4 py-1">
+        <div class="col d-block position-static pt-2 mx-2 rounded-3 shadow overflow-hidden w-780px d-flex align-items-start">
+            <div class="icon-square bg-light text-light d-inline-flex align-items-center justify-content-center fs-5 flex-shrink-5 me-5">
+              <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"></use></svg>
+            </div>
+                <div class="col-md-11">
+            
+                    <article class="blog-post">
+                        <h2 class="blog-post-title mb-1">{{poem.titulo}}</h2>
+                        <p class="blog-post-meta">{{poem.fecha}}, por: <a href="#">{{poem.usuario.nombre}}</a></p>
+                        <p>{{poem.cuerpo}}</p>
+                    </article>
+                </div>
+                
+            </div>
+            
+        </div>
+        <h2 class="pb-2 border-bottom "></h2>
+        <!--Comentar-->
+        <div class="container px-4 py-1">
+        <form method="POST" id="form4" action="/ver_poema/{{poem.id}}">
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">COMENTAR</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name = "commentary" rows="3"></textarea>
+        </div>
+
+            <label for="exampleFormControlSelect1">Calificar</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+                <label class="form-check-label" for="inlineRadio1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="2">
+                <label class="form-check-label" for="inlineRadio1">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="3">
+                <label class="form-check-label" for="inlineRadio1">3</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="4">
+                <label class="form-check-label" for="inlineRadio1">4</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="5">
+                <label class="form-check-label" for="inlineRadio1">5</label>
+        </div>
+        <div class="container px-4 py-1">
+            <input class="btn btn-primary" type="submit" value="Subir">
+        </div>
+        </form>
+
+        
+        <!-- Comentarios-->
+    <tbody>
+        {% for mark in marks %}
+            <h2 class="pb-8 border-bottom "></h2>
+             <div class="row g-4 py-5 row-cols-3 row-cols-lg-2">
+            <div class="col d-block position-static pt-0 mx-1 rounded-3 shadow overflow-hidden w-200px d-flex align-items-start">
+                <div class="icon-square bg-light text-light d-inline-flex align-items-center justify-content-center fs-1 flex-shrink-0 me-1">
+                  <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"></use></svg>
+                </div>
+                <div class="col-md-8">
+            
+                    <div class="coment-text">
+                        <p>{{mark.usuario.nombre}}</p>
+                        <p>{{mark.comentario}}</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        {% endfor %}
+    </tbody>
+        <!--Ranking-->
+        <div class="container px-4 py-1"></div>
+        <div class="row">
+            <!-- Espacio en blanco -->
+            <div class="col-lg-2 col-md-1">
+
+            </div>
+            <div class="col-lg-2 col-md-1">
+
+            </div>
+            <div class="col d-block position-static pt-0 mx-5 justify-content-center">
+                <div class="col-md-10 justify-content-center">
+            
+                    <div>
+                        <h2 class="comentario mb-1">CALIFICACION</h2>
+                        <h3 class="centered">{{poem.promedio}}</h3>
+                    </div>
+            </div>
+            <!-- Espacio en blanco -->
+            <div class="col-lg-2 col-md-1">
+                
+            </div>
+        </div>
+
+        <!-- Pie --> 
+        <footer class="footer mt-auto py-3 bg-light">
+            <div class="container">
+                <span class="text-muted">Foro Poemas © <script>document.write(new Date().getFullYear())</script> </span>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    
+    
+    
+    </body>
+</html>
